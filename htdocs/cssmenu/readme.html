@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS Menu Maker Installation Instructions</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="menu_source/menu_jquery.js"></script>
+<style type="text/css">
+  body{padding:20px; font-size:14px; color:#000000; font-family:Arial, Helvetica, sans-serif;}
+  h2 {font-weight:bold; color:#000099; margin: 20px 0px 10px 0; font-size: 1.5em;}
+  p span {color:#006600; font-weight:bold; }
+  a, a:link, a:visited {color:#0000FF;}
+  textarea {width: 100%; padding: 10px; margin: 10px 0 15px 0; font-size: 13px; font-family: Consolas,monospace;}
+  textarea.html {height: 300px;}
+  textarea.css {height: 50px;}
+  p {margin: 0 0 10px 0; line-height: 1.5; font-size: 1em;}
+  code, pre {font-family: Consolas,monospace; color: green;}
+  ol li {margin: 0 0 15px 0;}
+
+  .thirds {width: 30%; margin: 0 5% 0 0; float: left;}
+  .thirds.last {margin-right: 0; float: left;}   
+  .thirds textarea {height: 50px; font-size: .9em;}
+</style>
+
+
+</head>
+
+<body>
+
+
+<style type="text/css">@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,300);
+#cssmenu {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+  font-size: 10px;
+  line-height: 15px;
+  text-transform: uppercase;
+  text-align: left;
+}
+#cssmenu > ul {
+  width: auto;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  border: 1px solid #ece6e8;
+  border-bottom: 3px solid #d9ced2;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+#cssmenu > ul li#responsive-tab {
+  display: none;
+  /* Hide for large screens */
+
+}
+#cssmenu > ul li {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+#cssmenu > ul li.right {
+  float: right;
+}
+#cssmenu > ul li.has-sub {
+  position: relative;
+}
+#cssmenu > ul li.has-sub:hover ul {
+  display: block;
+}
+#cssmenu > ul li.has-sub ul {
+  display: none;
+  width: 250px;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  background: #ffffff;
+  border: 1px solid #ece6e8;
+  border-bottom: 3px solid #d9ced2;
+  border-top: 0 none;
+}
+#cssmenu > ul li.has-sub ul li {
+  display: block;
+}
+#cssmenu > ul li.has-sub > a {
+  background-image: url('menu_source/images/caret.png');
+  background-repeat: no-repeat;
+  background-position: 90% -95%;
+}
+#cssmenu > ul li.has-sub > a.active,
+#cssmenu > ul li.has-sub > a:hover {
+  background: #d80041 url('menu_source/images/caret.png') no-repeat;
+  background-position: 90% 195%;
+}
+#cssmenu > ul li a {
+  display: block;
+  padding: 12px 24px 11px 24px;
+  text-decoration: none;
+  color: #747474;
+  text-shadow: 0px 1px 0px #fff;
+}
+#cssmenu > ul li a.active,
+#cssmenu > ul li a:hover {
+  background: #d80041;
+  color: #fff;
+  text-shadow: 0px 1px 0px #000;
+}
+@media (max-width: 600px) {
+  #cssmenu > ul {
+    width: 100%;
+  }
+  #cssmenu > ul li#responsive-tab {
+    display: block;
+  }
+  #cssmenu > ul li#responsive-tab a {
+    background: url('menu_source/images/menu.png') no-repeat;
+    background-position: 95% -35%;
+  }
+  #cssmenu > ul li#responsive-tab a:hover {
+    background-color: #d80041;
+    background-position: 95% 135%;
+  }
+  #cssmenu > ul li {
+    display: none;
+  }
+  #cssmenu > ul li.right {
+    float: none;
+  }
+  #cssmenu > ul li.has-sub {
+    position: relative;
+  }
+  #cssmenu > ul li.has-sub ul {
+    display: block;
+    position: static;
+    width: 100%;
+    background: #ffffff;
+    border: 0 none;
+  }
+  #cssmenu > ul li.has-sub ul li {
+    display: block !important;
+  }
+  #cssmenu > ul li.has-sub ul li a span {
+    display: block;
+    padding-left: 24px;
+  }
+  #cssmenu > ul li.has-sub > a {
+    background-image: none;
+  }
+}
+/* Make sure they show even if hidden in mobile view by JS */
+@media (min-width: 600px) {
+  #cssmenu > ul > li.collapsed {
+    display: inline-block !important;
+    *display: inline;
+    zoom: 1;
+  }
+  #cssmenu > ul ul li.collapsed {
+    display: block !important;
+  }
+}
+</style>
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='index.html'><span>Home</span></a></li>
+   <li class='has-sub'><a href='#'><span>Profile</span></a>
+      <ul>
+         <li><a href='add.html'><span>Add</span></a></li>
+         <li class='last'><a href='edit.html'><span>Edit</span></a></li>
+      </ul>
+   </li>
+   <li><a href='search.html'><span>Search</span></a></li>
+   <li class='last'><a href='logout.html'><span>Logout</span></a></li>
+</ul>
+</div>
+
+<div style="clear:both; margin: 0 0 30px 0;">&nbsp;</div>
+
+<h2>Installation Instructions</h2>
+<p>These instructions will only work if you are installing your menu on a remote server or have a localhost server setup on your computer. For more help installing your menu, please visit the <a href="http://cssmenumaker.com/resources">Resources</a> section of our site. </p>
+<ol>
+   <li>Upload the <code>menu_source</code> folder to the root directory of your website. This is usually where your <code>index.html</code> or <code>index.php</code> file is.</li>
+   <li>Copy and paste the code below somewhere between the <code>&lt;head>&lt;/head></code> tags.
+	 	<textarea class='css'><link href="/menu_source/styles.css" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type='text/javascript' src='/menu_source/menu_jquery.js'></script></textarea>
+	  
+	 </li>
+   <li>Copy and paste the HTML below where ever you want your menu to show up.<textarea class='html'><div id='cssmenu'>
+<ul>
+   <li class='active'><a href='index.html'><span>Home</span></a></li>
+   <li class='has-sub'><a href='#'><span>Profile</span></a>
+      <ul>
+         <li><a href='add.html'><span>Add</span></a></li>
+         <li class='last'><a href='edit.html'><span>Edit</span></a></li>
+      </ul>
+   </li>
+   <li><a href='search.html'><span>Search</span></a></li>
+   <li class='last'><a href='logout.html'><span>Logout</span></a></li>
+</ul>
+</div></textarea></li>
+</ol>
+
+
+<div class="thirds">
+<h2>Share the Love</h2>
+<p>If you are using our menus for free, then please consider giving us a link from your site. We have spent alot of time on these menus and would greatly appreciate a little credit.</p>
+<textarea readonly="readonly"><a href="http://cssmenumaker.com" title="Drop Down Menus">Drop Down Menu by CSSMenuMaker.com</a></textarea>
+</div>
+
+<div class="thirds">
+<h2>Menu Showcase</h2>
+<p>Every month we publish a blog post and a newsletter showcasing some of the sites that use our menus. 
+Our blog and newsletters are seen by thousands of people a day, so if your site is included in our showcase 
+you can expect some serious traffic.</p>
+<p>To submit your site visit the <a href="http://cssmenumaker.com/showcase">Menu Showcase</a> form.</p>
+</div>
+
+<div class="thirds last">
+<h2>Troubleshooting</h2>
+<p>Visit our <a href="http://cssmenumaker.com/resources">Resources</a> section more installation guides and troubleshooting materials.</p>
+</div>
+
+</body>
+</html>

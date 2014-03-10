@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+	
+		<link href="styles.css" rel="stylesheet" type="text/css">
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type='text/javascript' src='/menu_source/menu_jquery.js'></script>
+		
+		<script language="javascript">
+    window.location.href = "http://localhost/login.php"
+</script>
+
+		<title></title>
+		
+	</head>
+	<body>
+<div>
+<h2>Super Scrappers!</h2>
+</div>	
+		<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='index.html'><span>Home</span></a></li>
+   <li class='has-sub'><a href='#'><span>Profile</span></a>
+      <ul>
+         <li><a href='add.php'><span>Add</span></a></li>
+         <li class='last'><a href='edit.html'><span>Edit</span></a></li>
+      </ul>
+   </li>
+   <li><a href='search.php'><span>Search</span></a></li>
+   <li class='last'><a href='logout.php'><span>Logout</span></a></li>
+</ul>
+</div>
+		
+		<div>
+<form action="<?php $_SERVER['PHP_SELF']?>" method="post" class="form-login">
+			<center>
+			<h2>Welcome to Super Scrappers!!!</h2>
+			<h4>Login or create an account to share your scrapbook ideas. </h4>
+		
+<table>
+<tr>
+<td>Username: <input type="text" name="username" size="20" placeholder="Username">
+</td>
+</tr>
+
+<tr>
+<td>Password: <input type="password" name="password" size="20" placeholder="Password">
+</td>
+</tr>
+
+<tr>
+<td>
+<input type="submit" value="Log In" class="btn btn-large btn-primary">
+&nbsp;&nbsp;
+<a href="signup.php">Sign Up</a>
+<!--<input type=" value="SignUp" class="btn btn-large btn-primary">-->
+</td>
+</tr>
+<table>
+<br>
+
+<center>
+			<img src="C:/xampp/htdocs/superheroes.jpg" alt="Superheroes!!!" height="500" width="300" />
+			
+			
+			</center>
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,116 @@
+
+
+
+
+
+
+
+
+<!--	if(sizeof($search_array) > 0)
+	{
+        /*** loop over the search array and display search results ***/
+        foreach($search_array as $search)
+        {
+		?>
+		
+        
+			<!--<td><?php //echo $search['firstname'];?></td>
+			<td><?php //echo $search['lastname'];?></td>
+			<tr>-->
+			
+		<?php
+        }
+    }
+		?>
+		
+		
+		
+		
+		
+		
+		
+//$first_name= mysql_real_escape_string($_POST['firstname']);
+//$last_name= mysql_real_escape_string($_POST['lastname']);
+	
+//echo $first_name;
+//echo $last_name;	
+
+if(!empty($_POST['firstname']) && !empty($_POST['lastname'])){
+	//echo "Made it here first and last";
+	$first_name= mysql_real_escape_string($_POST['firstname']);
+	$last_name= mysql_real_escape_string($_POST['lastname']);
+	$check = "SELECT * from users where firstname = '".$first_name."' and lastname = '".$last_name."';";
+	$qry = mysql_query($check);	
+	echo '<div class="search_results">';
+	echo '<table><tr><td>Here are the users with a first and last name of ' .$first_name. '</td>';
+	echo $first_name;
+	echo " ";
+	echo $last_name;
+	echo '</td>';	
+	/*** run the query ***/
+        $result = mysql_query($check) or die(mysql_error());
+
+        /*** create the search array ***/
+        $search_array = array();
+
+        /*** check for a valid resource ***/
+        if(is_resource($result))
+        {
+            /*** check there are results ***/
+            if(mysql_num_rows($result) != 0)
+            {
+                /*** stuff the search entries into the search array ***/
+                while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+                {
+                    $search_array[] = $row;
+                }
+            }
+        }
+		
+		if(sizeof($search_array) > 0)
+    {
+        /*** loop over the search array and display search results ***/
+        foreach($search_array as $search)
+        {
+			echo '<div class="search_entry">';
+            //echo '<p>'.$search['firstname'].'</p>';
+			echo '<tr>';
+			echo '<td>'.$search['firstname'].'</td>';
+			echo '<td>'.$search['lastname'].'</td>';
+			echo '<tr>';
+			echo '<table>';
+            echo '</div>';
+        }
+    }
+    	
+	echo '</tr></table>';
+    echo '</div>';
+}elseif(!empty($_POST['firstname']) && empty($_POST['lastname'])){
+	//echo "Made it here firstname";
+	$first_name= mysql_real_escape_string($_POST['firstname']);
+	//$check = "SELECT * from users where firstname = '".$first_name."';";
+	//$check = "SELECT * from users where firstname = 'Lynnell';";
+	$check = "SELECT * from users where firstname = '.$first_name.';";
+	$qry = mysql_query($check);	
+	echo '<div class="search_results">';
+	echo '<table><tr><td>Here are the users with a first name of</td></tr></table>';
+    echo '</div>';		
+}elseif(empty($_POST['firstname']) && !empty($_POST['lastname'])){
+	//echo "Made it here lastname";
+	$last_name= mysql_real_escape_string($_POST['lastname']);
+	$check = "SELECT * from users where lastname = '".$last_name."';";
+	$qry = mysql_query($check);	
+	echo '<div class="search_results">';
+	echo '<table><tr><td>Here are the users with a last name of</td></tr></table>';
+    echo '</div>';
+}elseif(isset($_POST) && !empty($_POST)){
+	// the button to display all the users was clicked. 
+	//echo "Made it here - in POST - display all users";
+	$check = "SELECT * from users;";
+	$qry = mysql_query($check);	
+	echo '<div class="search_results">';
+	echo '<table><tr><td>Here are all the users:</td></tr></table>';
+    echo '</div>';	
+	exit;
+
+}			

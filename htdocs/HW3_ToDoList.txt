@@ -1,0 +1,25 @@
+To Do List (not in priority order):
+
+Neatly format/line up the code and tags.
+Add "Welcome, User!" to upper right corner
+Add Profile, Logout to upper right corner 
+Change tab names --> Remove Profile, Logout. Add Events, Ideas.
+Add wallpaper color
+Add Logo/color band at top 
+
+
+Move all files to a HW3 folder
+File Transfer upload to Dreamhost
+
+
+read all users from db
+display all users from db
+
+
+add user as a friend
+remove user as a friend
+
+view friend's messages
+
+Modularize repeated code in search.php 
+
